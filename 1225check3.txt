@@ -1,0 +1,113 @@
+[
+    {
+        id 4a67c749.34b148,
+        type inject,
+        z b291673e.2aa1c8,
+        name ,
+        topic ,
+        payload ,
+        payloadType date,
+        repeat 5,
+        crontab ,
+        once true,
+        x 190,
+        y 140,
+        wires [
+            [
+                c924df45.73fa2,
+                de3a4e09.e56f2
+            ]
+        ]
+    },
+    {
+        id c924df45.73fa2,
+        type function,
+        z b291673e.2aa1c8,
+        name Payload,
+        func msg.headers={ntdeviceKeysqMENGW8WhBJl6dAnt};nmsg.payload = Temperature,,233.2;nreturn msg;,
+        outputs 1,
+        noerr 0,
+        x 320,
+        y 200,
+        wires [
+            [
+                9b858927.338958
+            ]
+        ]
+    },
+    {
+        id 9b858927.338958,
+        type http request,
+        z b291673e.2aa1c8,
+        name Temperature,
+        method POST,
+        ret txt,
+        url httpsapi.mediatek.commcsv2devicesDnsSYC67datapoints.csv,
+        tls ,
+        x 490,
+        y 180,
+        wires [
+            [
+                4e6fe763.133228,
+                eec4a748.b70f88
+            ]
+        ]
+    },
+    {
+        id 4e6fe763.133228,
+        type http response,
+        z b291673e.2aa1c8,
+        name ,
+        statusCode ,
+        headers {},
+        x 670,
+        y 260,
+        wires []
+    },
+    {
+        id eec4a748.b70f88,
+        type debug,
+        z b291673e.2aa1c8,
+        name ,
+        active true,
+        console false,
+        complete false,
+        x 750,
+        y 220,
+        wires []
+    },
+    {
+        id de3a4e09.e56f2,
+        type function,
+        z b291673e.2aa1c8,
+        name Payload,
+        func msg.headers={ntdeviceKeysqMENGW8WhBJl6dAnt};nmsg.payload = Humidity,,12323.2;nreturn msg;,
+        outputs 1,
+        noerr 0,
+        x 322,
+        y 250,
+        wires [
+            [
+                87b41373.d3347
+            ]
+        ]
+    },
+    {
+        id 87b41373.d3347,
+        type http request,
+        z b291673e.2aa1c8,
+        name Humidity,
+        method POST,
+        ret txt,
+        url httpsapi.mediatek.commcsv2devicesDnsSYC67datapoints.csv,
+        tls ,
+        x 471,
+        y 248,
+        wires [
+            [
+                4e6fe763.133228,
+                eec4a748.b70f88
+            ]
+        ]
+    }
+]

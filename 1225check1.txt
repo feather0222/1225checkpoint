@@ -1,0 +1,125 @@
+[
+    {
+        "id": "76501c6d.c0dfc4",
+        "type": "rpi-gpio in",
+        "z": "b291673e.2aa1c8",
+        "name": "button",
+        "pin": "11",
+        "intype": "up",
+        "debounce": "25",
+        "read": true,
+        "x": 251,
+        "y": 178,
+        "wires": [
+            [
+                "3c91f630.79805a",
+                "b01a5c6a.1e32e"
+            ]
+        ]
+    },
+    {
+        "id": "dc8ec47f.d235b8",
+        "type": "rpi-gpio out",
+        "z": "b291673e.2aa1c8",
+        "name": "led",
+        "pin": "12",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 673,
+        "y": 237,
+        "wires": []
+    },
+    {
+        "id": "b01a5c6a.1e32e",
+        "type": "debug",
+        "z": "b291673e.2aa1c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 627,
+        "y": 153,
+        "wires": []
+    },
+    {
+        "id": "3c91f630.79805a",
+        "type": "switch",
+        "z": "b291673e.2aa1c8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 258,
+        "y": 254,
+        "wires": [
+            [
+                "f2ced4d1.12e3a8",
+                "92cfec26.56dc2"
+            ]
+        ]
+    },
+    {
+        "id": "f2ced4d1.12e3a8",
+        "type": "change",
+        "z": "b291673e.2aa1c8",
+        "name": "ch1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 240,
+        "wires": [
+            [
+                "dc8ec47f.d235b8"
+            ]
+        ]
+    },
+    {
+        "id": "92cfec26.56dc2",
+        "type": "change",
+        "z": "b291673e.2aa1c8",
+        "name": "ch0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 407,
+        "y": 310,
+        "wires": [
+            [
+                "dc8ec47f.d235b8"
+            ]
+        ]
+    }
+]
